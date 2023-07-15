@@ -19,15 +19,15 @@ export default function TextForm(props) {
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(text)
-      .then(() => {
-        console.log("Text copied to clipboard!");
-      })
-      .catch((error) => {
-        console.error("Error copying text:", error);
-      });
+    var text = document.getElementById("mybox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
   };
 
+  const handleExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+  };
   const [text, setText] = useState("");
 
   return (
@@ -39,7 +39,7 @@ export default function TextForm(props) {
             onChange={handleOnChange}
             value={text}
             className="form-control"
-            id="exampleFormControlTextarea1"
+            id="mybox"
             rows="7"
           ></textarea>
         </div>
@@ -52,6 +52,9 @@ export default function TextForm(props) {
         </button>
         <button className="btn btn-primary mx-1" onClick={copyToClipboard}>
           Copy
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>
+          Remove Extra Spaces
         </button>
       </div>
       <div className="container" my-3>
