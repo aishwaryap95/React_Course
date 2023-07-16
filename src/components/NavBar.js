@@ -35,9 +35,13 @@ export default function NavBar(props) {
               </a>
             </li>
           </ul>
-          <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
+          <div
+            className={`form-check form-switch text-${
+              props.mode === "light" ? "dark" : "light"
+            }`}
+          >
             <input
-            onClick={props.toggleMode}
+              onClick={props.toggleMode}
               className="form-check-input"
               type="checkbox"
               role="switch"
