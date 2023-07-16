@@ -18,7 +18,7 @@ function App() {
     });
     setTimeout(() => {
       showAlert(null);
-    }, 3000);
+    }, 1500);
   };
 
   const toggleMode = () => {
@@ -32,18 +32,6 @@ function App() {
       document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enabled", "success");
       document.title = "TextUtils - Light Mode";
-    }
-  };
-
-  const toggleMode2 = () => {
-    if (mode === "light") {
-      setMode("dark");
-      document.body.style.backgroundColor = "#042743";
-      showAlert("Dark mode has been enabled", "success");
-    } else {
-      setMode("limeGreen");
-      document.body.style.backgroundColor = "#ebebe0";
-      showAlert("LimeGreen mode has been enabled!");
     }
   };
 
